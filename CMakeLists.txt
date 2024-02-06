@@ -144,7 +144,7 @@ check_c_compiler_flag(-Wdeclaration-after-statement HAVE_DECL_AFTER_STMT_FLAG)
 check_c_compiler_flag(-mstackrealign HAVE_STACKREALIGN_FLAG)
 check_cxx_compiler_flag(-Weffc++ HAVE_WEFFCXX_FLAG)
 
-if(MINGW AND (WITH_FORTIFY_SOURCE OR WITH_STACK_PROTECTOR))
+if(MINGW OR OS2 AND (WITH_FORTIFY_SOURCE OR WITH_STACK_PROTECTOR))
   check_library_exists("ssp.a"  __stack_chk_fail "" HAVE_LIBSSP)
   if(NOT HAVE_LIBSSP)
     message(WARNING "Could not find libssp in MinGW, stack protection and/or FORTIFY_SOURCE are unavailable")
