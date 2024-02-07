@@ -16,3 +16,10 @@ target_link_libraries(metaflac FLAC getopt utf8)
 
 install(TARGETS metaflac EXPORT targets
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
+
+if(OS2)
+set_target_properties(metaflac PROPERTIES
+ OS2_DEF_VENDOR "TeLLie OS2 forever"
+ OS2_DEF_PATCH "${VERSION_PATCH}"
+ OS2_DEF_VERSION "${VERSION}")
+endif()

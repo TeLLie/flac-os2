@@ -23,6 +23,13 @@ if(BUILD_SHARED_LIBS)
     endif()
 endif()
 
+if(OS2)
+set_target_properties(FLAC++ PROPERTIES
+ OS2_DEF_VENDOR "TeLLie OS2 forever"
+ OS2_DEF_PATCH "${VERSION_PATCH}"
+ OS2_DEF_VERSION "${VERSION}")
+endif()
+
 add_library(FLAC::FLAC++ ALIAS FLAC++)
 
 install(TARGETS FLAC++ EXPORT targets

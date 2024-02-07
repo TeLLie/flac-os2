@@ -23,3 +23,10 @@ target_link_libraries(flacapp
 
 install(TARGETS flacapp EXPORT targets
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
+
+if(OS2)
+set_target_properties(flacapp PROPERTIES
+ OS2_DEF_VENDOR "TeLLie OS2 forever"
+ OS2_DEF_PATCH "${VERSION_PATCH}"
+ OS2_DEF_VERSION "${VERSION}")
+endif()

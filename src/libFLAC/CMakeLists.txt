@@ -98,6 +98,13 @@ if(BUILD_SHARED_LIBS)
     endif()
 endif()
 
+if(OS2)
+set_target_properties(FLAC PROPERTIES
+ OS2_DEF_VENDOR "TeLLie OS2 forever"
+ OS2_DEF_PATCH "${VERSION_PATCH}"
+ OS2_DEF_VERSION "${VERSION}")
+endif()
+
 check_c_compiler_flag("-fassociative-math -fno-signed-zeros -fno-trapping-math -freciprocal-math" HAVE_ASSOC_MATH)
 
 if(MSVC)
