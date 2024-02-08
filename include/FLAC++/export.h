@@ -73,11 +73,14 @@
  * by libtool, must override FLAC__NO_DLL on building shared components
  */
 #if defined(_WIN32) || defined(__OS2__)
-#if defined(FLAC__NO_DLL) && !defined(__OS2__) && !(defined(DLL_EXPORT))
+
+#if defined(FLAC__NO_DLL) && !(defined(DLL_EXPORT))
 #define FLACPP_API
 #else
 #ifdef FLACPP_API_EXPORTS
 #define	FLACPP_API __declspec(dllexport)
+#elif defined(__OS2__)
+#define	FLACPP_API 
 #else
 #define FLACPP_API __declspec(dllimport)
 #endif

@@ -72,13 +72,15 @@
  * build static, shared or **both**. Therefore, DLL_EXPORT, which is set
  * by libtool, must override FLAC__NO_DLL on building shared components
  */
-#if defined(_WIN32) || defined(__OS2__)
+#if defined(_WIN32) || defined(__OS2__) 
 
-#if defined(FLAC__NO_DLL) && !defined(__OS2__) && !(defined(DLL_EXPORT))
+#if defined(FLAC__NO_DLL) && !(defined(DLL_EXPORT))
 #define FLAC_API
 #else
 #ifdef FLAC_API_EXPORTS
 #define	FLAC_API __declspec(dllexport)
+#elif defined(__OS2__)
+#define	FLAC_API 
 #else
 #define FLAC_API __declspec(dllimport)
 #endif
