@@ -25,7 +25,7 @@
 #include <stdlib.h> /* for malloc() */
 #include <string.h> /* for memcpy()/memset() */
 #include <sys/types.h> /* some flavors of BSD (like OS X) require this to get time_t */
-#ifdef _MSC_VER
+#if defined _MSC_VER || defined __OS2__
 #include <sys/utime.h>
 #endif
 #if !defined _MSC_VER && !defined __MINGW32__ && !defined __EMX__
@@ -272,7 +272,7 @@ void set_file_stats_(const char *filename, struct flac_stat_s *stats)
 	FLAC__ASSERT(0 != filename);
 	FLAC__ASSERT(0 != stats);
 
-#if defined(_POSIX_C_SOURCE) && (_POSIX_C_SOURCE >= 200809L) && !defined(_WIN32)
+#if defined(_POSIX_C_SOURCE) && (_POSIX_C_SOURCE >= 200809L) && !defined(_WIN32) && !defined(__OS2__)
 	struct timespec srctime[2] = {};
 	srctime[0].tv_sec = stats->st_atime;
 	srctime[1].tv_sec = stats->st_mtime;

@@ -49,11 +49,6 @@
 # include <unistd.h>
 #endif
 
-#ifdef __OS2__
-#include <sys/types.h>
-#include <utime.h>
-#endif
-
 #if defined _MSC_VER || defined __BORLANDC__ || defined __MINGW32__
 #include <sys/types.h> /* for off_t */
 #define FLAC__off_t __int64 /* use this instead of off_t to fix the 2 GB limit */
@@ -124,7 +119,7 @@
 #include <sys/utime.h> /* for utime() */
 #endif
 #else
-#if defined(_POSIX_C_SOURCE) && (_POSIX_C_SOURCE >= 200809L)
+#if defined(_POSIX_C_SOURCE) && (_POSIX_C_SOURCE >= 200809L) && !defined(__OS2__)
 #include <fcntl.h>
 #else
 #include <sys/types.h> /* some flavors of BSD (like OS X) require this to get time_t */
