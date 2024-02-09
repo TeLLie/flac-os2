@@ -20,9 +20,9 @@
 
 . ./common.sh
 
-PATH=../src/flac:$PATH
-PATH=../src/test_streams:$PATH
-PATH=../objs/$BUILD/bin:$PATH
+PATH="../src/flac;$PATH"
+PATH="../src/test_streams;$PATH"
+PATH="../objs/$BUILD/bin;$PATH"
 
 if [ -z "$FLAC__TEST_LEVEL" ] ; then
 	FLAC__TEST_LEVEL=1

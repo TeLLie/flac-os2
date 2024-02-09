@@ -20,8 +20,8 @@
 
 . ./common.sh
 
-PATH=../src/test_libFLAC:$PATH
-PATH=../objs/$BUILD/bin:$PATH
+PATH="../src/test_libFLAC;$PATH"
+PATH="../objs/$BUILD/bin;$PATH"
 
 run_test_libFLAC ()
 {
