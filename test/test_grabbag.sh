@@ -20,9 +20,9 @@
 
 . ./common.sh
 
-PATH=../src/test_grabbag/cuesheet:$PATH
-PATH=../src/test_grabbag/picture:$PATH
-PATH=../objs/$BUILD/bin:$PATH
+PATH="../src/test_grabbag/cuesheet;$PATH"
+PATH="../src/test_grabbag/picture;$PATH"
+PATH="../objs/$BUILD/bin;$PATH"
 
 test_cuesheet -h 1>/dev/null 2>/dev/null || die "ERROR can't find test_cuesheet executable"
 test_picture -h 1>/dev/null 2>/dev/null || die "ERROR can't find test_picture executable"
