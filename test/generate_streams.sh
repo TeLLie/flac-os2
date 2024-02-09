@@ -20,8 +20,8 @@
 
 . ./common.sh
 
-PATH="$(pwd)/../src/test_streams:$PATH"
-PATH="$(pwd)/../objs/$BUILD/bin:$PATH"
+PATH="$(pwd)/../src/test_streams;$PATH"
+PATH="$(pwd)/../objs/$BUILD/bin;$PATH"
 
 echo "Generating streams..."
 if [ ! -f wacky1.wav ] ; then

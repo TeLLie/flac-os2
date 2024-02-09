@@ -25,10 +25,10 @@ export LANG=C LC_ALL=C
 
 dddie="die ERROR: creating files with dd"
 
-PATH="$(pwd)/../src/flac:$PATH"
-PATH="$(pwd)/../src/metaflac:$PATH"
-PATH="$(pwd)/../src/test_streams:$PATH"
-PATH="$(pwd)/../objs/$BUILD/bin:$PATH"
+PATH="$(pwd)/../src/flac;$PATH"
+PATH="$(pwd)/../src/metaflac;$PATH"
+PATH="$(pwd)/../src/test_streams;$PATH"
+PATH="$(pwd)/../objs/$BUILD/bin;$PATH"
 
 flac${EXE} --help 1>/dev/null 2>/dev/null || die "ERROR can't find flac executable"
 

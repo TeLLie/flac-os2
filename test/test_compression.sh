@@ -19,7 +19,7 @@
 
 . ./common.sh
 
-PATH="$(pwd)/../src/flac:$PATH"
+PATH="$(pwd)/../src/flac;$PATH"
 
 printf "Using FLAC binary : %s\n" "$(which flac)"
 
